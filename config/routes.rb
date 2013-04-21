@@ -1,9 +1,9 @@
 SampleApp::Application.routes.draw do
   get "static_pages/home"
 
-  match "static_pages/help"  =>	  "static_pages#help",  :as  => :help
-
- 
+  match "static_pages/help"     =>	  "static_pages#help",     :as  => :help
+  match "static_pages/about"    =>	  "static_pages#about",    :as  => :about
+  match "static_pages/contact"  =>	  "static_pages#contact",  :as  => :contact
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
