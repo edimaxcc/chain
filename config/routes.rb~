@@ -1,7 +1,7 @@
 SampleApp::Application.routes.draw do
   get "static_pages/home"
 
-  match "static_pages/help"  =>	  "static_pages#help",  :as  => :help
+  match "static_pages/help"  =>	"static_pages#help",  :as  => :help
 
  
 
