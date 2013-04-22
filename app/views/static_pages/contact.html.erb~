@@ -1,6 +1,6 @@
 <% provide(:title, 'Contact') %>
        
-       <title> "Ruby on Rails Tutorial Sample App | Contact " </title>
+       
 
 	<h1>Contact</h1>
 	
