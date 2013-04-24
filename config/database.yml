@@ -38,5 +38,5 @@ production:
   database: sample_app_production
   pool: 5
   username: root
-  password:
+  password: abcd
   socket: /var/run/mysqld/mysqld.sock
