@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'bootstrap-sass', '2.0.0'
+gem 'bootstrap-sass', '2.0.4'
 gem 'bcrypt-ruby', '3.0.1'
 
 # Bundle edge Rails instead:
@@ -39,6 +39,8 @@ gem 'libnotify', '0.8.0'
 gem 'guard-spork', '0.3.2'
 gem 'spork', 	 '0.9.0'
 gem 'factory_girl_rails', '1.4.0'
+gem 'cucumber-rails', '1.2.1', require: false
+gem 'database_cleaner', '0.7.0'
 end
 
 # To use ActiveModel has_secure_password
