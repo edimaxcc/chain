@@ -1,6 +1,6 @@
 
 <div class="center hero-unit">
-	<%= title 'Home' %>
+	
 
 	<h1>Sample App</h1>
 	
