@@ -1,4 +1,4 @@
-# == Schema Information
+	# == Schema Information
 #
 # Table name: users
 #
@@ -14,12 +14,14 @@ require 'spec_helper'
 	describe User do
 	
 	before do 
-	@user = User.new(name: "Example User", email: "user@example.com",
-			password: "foobar", password_confirmation: "foobar")
+	@user = User.new(name: "Edson Carlos Campagnoli", email: "edson.ssys@gmail.com",
+			password: "abcd123", password_confirmation: "abcd123")
 	end
 
 	subject { @user }
 	
+	it { should respond_to(:authenticate) }
+	it { should respond_to(:microposts) }
 	it { should respond_to(:admin) }
 	it { should respond_to(:name) }
 	it { should respond_to(:email) }
@@ -52,12 +54,37 @@ require 'spec_helper'
 	end
 
 	describe "when name is too long" do
-
+        
 	before { @user.name = "a" * 51 }
 
 	it { should_not be_valid }
+	
+        end
+	
+	describe "micropost associations" do
+	
+	before { @user.save }
+	let!(:older_micropost) do
+	FactoryGirl.create(:micropost, user: @user, created_at: 1.day.ago)
 	end
 
+	let!(:newer_micropost) do
+	FactoryGirl.create(:micropost, user: @user, created_at: 1.hour.ago)
+	end
+
+	it "should have the right microposts in the right order" do
+	@user.microposts.should == [newer_micropost, older_micropost]
+	end
+	
+	it "should destroy associated microposts" do
+	microposts = @user.microposts
+	@user.destroy
+	
+	microposts.each do |micropost|
+	Micropost.find_by_id(micropost.id).should be_nil
+	end
+	end
+	end
 	
 
 

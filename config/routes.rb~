@@ -6,7 +6,7 @@ SampleApp::Application.routes.draw do
 
 
   
-  match  '/destroy'		'user#destroy'		  :method => :delete
+  match  '/destroy', to:	'user#destroy',		  :method => :delete
 
   match '/signup',   to:	'users#new',		  :as  => :signup  
   match '/signin',   to:	'sessions#new',		  :as  => :signin
