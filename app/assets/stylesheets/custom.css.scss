@@ -146,6 +146,41 @@ border-bottom: 1px solid $grayLighter;
 }
 }
 
+/* microposts */
+.microposts {
+list-style: none;
+margin: 10px 0 0 0;
+li {
+padding: 10px 0;
+border-top: 1px solid #e8e8e8;
+}
+}
+.content {
+display: block;
+}
+.timestamp {
+color: $grayLight;
+}
+.gravatar {
+float: left;
+margin-right: 10px;
+}
+aside {
+textarea {
+height: 100px;
+margin-bottom: 5px;
+}
+
+#micropost_content {
+
+width: 277px;
+
+}
+
+
+
+
+}
 
 
 /* forms */
@@ -155,7 +190,7 @@ width: 100%;
 padding: 10px;
 height: auto;
 margin-bottom: 15px;
-@include box_sizing;
+
 }
 
 #error_explanation {
@@ -164,9 +199,21 @@ ul {
 list-style: none;
 margin: 0 0 18px 0;
 }
+
 }
 .field_with_errors {
 @extend .control-group;
 @extend .error;
+}
+
+
+
+
+.span8 {
+    width: 620px;
+    float: right;
+    margin-right: -190px;
+    padding-top: 10px;
+    margin-top: -290px;
 }
 

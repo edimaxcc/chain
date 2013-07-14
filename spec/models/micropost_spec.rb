@@ -6,10 +6,7 @@ describe Micropost do
 
 	before { @micropost = user.microposts.build(content: "Lorem ipsum") }
 
-	before do
-	# This code is wrong!
-	@micropost = Micropost.new(content: "Lorem ipsum", user_id: user.id)
-	end
+	
 	
 	subject { @micropost }
 
