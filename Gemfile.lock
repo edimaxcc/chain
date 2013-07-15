@@ -109,6 +109,7 @@ GEM
     multi_json (1.7.2)
     mysql2 (0.3.11)
     nokogiri (1.5.9)
+    pg (0.12.2)
     polyglot (0.3.3)
     pry (0.9.12.1)
       coderay (~> 1.0.5)
@@ -209,6 +210,7 @@ DEPENDENCIES
   jquery-rails
   libnotify (= 0.8.0)
   mysql2
+  pg
   rails (= 3.2.13)
   rb-inotify (~> 0.9)
   rspec-rails (= 2.10.0)
