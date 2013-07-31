@@ -18,16 +18,7 @@ describe User do
   subject { @user }
   
 
-  it { should respond_to(:microposts) }
-  it { should respond_to(:feed) }	
-  it { should respond_to(:name) }
-  it { should respond_to(:email) }
-  it { should respond_to(:password_digest) }
-  it { should respond_to(:password) }
-  it { should respond_to(:password_confirmation) }
-  it { should respond_to(:remember_token) }
-  it { should respond_to(:authenticate) }
-  
+    
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:microposts) }
@@ -151,7 +142,9 @@ describe User do
         FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
       end
       let(:followed_user) { FactoryGirl.create(:user) }
-      
+        before do
+
+      @user.follow!(followed_user)
       
       its(:feed) { should include(newer_micropost) }
       its(:feed) { should include(older_micropost) }
@@ -163,7 +156,7 @@ describe User do
       end
     end
   end
-  
+end  
   describe "following" do
     let(:other_user) { FactoryGirl.create(:user) }
     before do
