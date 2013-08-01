@@ -46,7 +46,7 @@ config.action_mailer.smtp_settings = {
    :authentication => :plain,
    :domain => 'webdev',
    :user_name => 'edson.ssys@gmail.com',
-   :password  => '72302557'
+   :password  => 'password'
    
 
 }
