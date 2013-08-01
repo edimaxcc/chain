@@ -12,11 +12,9 @@ class UsersController < ApplicationController
   end
 
   def show
-  @user =       User.find(params[:id])
-
-  
-  
-  @microposts = @user.microposts.paginate(page: params[:page])
+  @user =   User.find(params[:id])
+  @user = user
+  @microposts = user.microposts.paginate(page: params[:page])
 
   end
   
@@ -26,16 +24,26 @@ class UsersController < ApplicationController
   end
 
   def create
-  @user = User.new(params[:user])
+  	@user = User.new(params[:user])
+  	
+	respond_to do | format |
 	if @user.save
+
+	UserMailer.registration_confirmation(@user).deliver
+
 	# Handle a successful save.
-	flash[:sucess] = "Welcome to the Sample App!"	
-	redirect_to @user	
+		
+	format.html { redirect_to(@user, :notice => "User was successfully created")}
+        format.xml  { render :xml => @user, :status => :created, :location => @user }  	
 	else
-	render 'new'
+	format.html { render :action => "new" }
+	format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
 	end
       end
- 
+    end
+   
+
+
   def edit
   @user = User.find(params[:id])
  	end

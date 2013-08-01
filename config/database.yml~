@@ -14,21 +14,21 @@ development:
   reconnect: false
   database: sample_app_development
   pool: 5
-  username: root
-  password: abcd
+  username: 
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   adapter: mysql2
   encoding: utf8
   reconnect: false
   database: sample_app_test
   pool: 5
-  username: root
-  password: abcd
+  username: 
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -38,5 +38,8 @@ production:
   database: sample_app_production
   pool: 5
   username: root
-  password:
+  password: abcd
   socket: /var/run/mysqld/mysqld.sock
+
+cucumber:
+  <<: *test
